@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Groupon Exchange.
+  > Karaoke Party!.
 
 ## Sub-Heading ##
-  > Groupon Exchange is an app targeting users who want to spend on a budget.
+  > Karaoke Party is an app targeting users who enjoy music and having a good time.
 
 ## Summary ##
-  > Groupon exchange is an app that will allow user to find, save, and share coupons available at different shops. The app will provide a list of stores where coupons can be found and are valid. Coupon descriptions (time of valid use, product coupon can be used on, etc) will also be provided. 
+  > Karaoke Party is an app that will allow users to find and play songs. When a song plays, the app will display that song's lyrics. As a song is being played, lyrics will appear in intervals based on how far along you are in the song. Songs can be favorited and repeated. 
 
 ## Problem ##
-  > The two problems my app solves are allowing others have more access to coupons outside of the newspaper and gives users more chances to save money.
+  > The problem my app solves is having an easier way for users to enjoy karaoke.
 
 ## Solution ##
-  > My product elegantly solves this problem by using Google Maps api to allow a user to find stores advertizing coupons for their products. Every coupon found is another chance to save money.
+  > My product elegantly solves this problem by using MusicMathDeveloper api to allow a user to find a song by query and display that songs lyrics when played.
 
 ## Quote from You ##
-  > "If you are looking for high quality at a low price, look no further".
+  > "Get Jiggy With It".
 
 ## How to Get Started ##
-  > A user gets started by pressing the "Find Coupons" button on the gome page. You will then be sent to a map displaying stores advertizing coupons based on your current location. 
+  > A user gets started by pressing the "Find A Song" button on the main page once a song is queried. You will be sent to a results page containing a list of songs ased on your query. 
 
 ## Customer Quote ##
-  > "I've saved $1000 just this month thanks to the amount of coupons I was able to take advantage of thanks to Groupon Exchange!".
+  > "Karaoke night was a blast thanks to Kaorke Party!".
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Don't just stand there! You can get in on all the fun by visit our website!
