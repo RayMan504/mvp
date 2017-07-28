@@ -4,7 +4,16 @@ angular.module('karaoke-party')
 // add controller. takes name and callback. callback takes scope object
 .controller('AppCtrl', function($scope) {
   // add select videoFunction on scope
-  this.song = [];
+  this.selectSongs = (song) => {
+    this.currentSongs = song;
+  };
+  // add search results function on scope
+  this.searchResults = (data) => {
+  // add videos property on scope
+    this.songs = data;
+  // add currentSongs property on scope
+    this.currentSongs = this.songs[0];
+  };
   
 
 })
