@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Groupon Exchange.
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Groupon Exchange is an app targeting users who want to spend on a budget.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Groupon exchange is an app that will allow user to find, save, and share coupons available at different shops. The app will provide a list of stores where coupons can be found and are valid. Coupon descriptions (time of valid use, product coupon can be used on, etc) will also be provided. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > The two problems my app solves are allowing others have more access to coupons outside of the newspaper and gives users more chances to save money.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > My product elegantly solves this problem by using Google Maps api to allow a user to find stores advertizing coupons for their products. Every coupon found is another chance to save money.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "If you are looking for high quality at a low price, look no further".
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > A user gets started by pressing the "Find Coupons" button on the gome page. You will then be sent to a map displaying stores advertizing coupons based on your current location. 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I've saved $1000 just this month thanks to the amount of coupons I was able to take advantage of thanks to Groupon Exchange!".
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
