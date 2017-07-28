@@ -6,10 +6,13 @@
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" />
     <script src="angular/angular.js"></script>
   </head>
-  <body ng-app>
-
+  <body ng-app="karaoke-party">
+    <app ng-app="karaoke-party">
+        <h5><br/><br/>this message will disappear when <em>app</em> component is correctly rendered<br/><br/><br/></h5>
+    </app>
     <p>Nothing here {{'yet' + '!'}}</p>
     <p>1 + 1 = {{1 + 1}}</p>
+    <script src="components/app.js"></script>
 
   </body>
 </html>
