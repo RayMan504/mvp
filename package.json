@@ -1,0 +1,24 @@
+{
+  "name": "mvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RayMan504/mvp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RayMan504/mvp/issues"
+  },
+  "homepage": "https://github.com/RayMan504/mvp#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0"
+  }
+}
