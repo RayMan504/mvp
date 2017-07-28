@@ -1,0 +1,22 @@
+{
+  "name": "karaoke party",
+  "description": "mvp app",
+  "main": "server.js",
+  "authors": [
+    "RayMan504 <uraeusmillet@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/RayMan504/mvp",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "bootstrap": "^3.3.7"
+  }
+}
