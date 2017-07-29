@@ -1,5 +1,5 @@
-angular.module('video-player')
-  .service('youTube', function ($http, $window) {
+angular.module('karaoke-party')
+  .service('musixmatch', function ($http, $window) {
   // TODO
   // this.search = function(str, cb) {
   //   cb();
