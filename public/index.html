@@ -6,26 +6,14 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script><!-- load angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
   </head>
   <body ng-controller="AppCtrl">
-    
-    <p>Nothing here {{'yet' + '!'}}</p>
-    <p>1 + 1 = {{1 + 1}}</p>
+      <a href="#home">Home</a>
+      <a href="#favorites">Favorites</a></a>
+    <div ng-view></div>
    <!--button that when request will display tracks-->
-   <div class="text-wrapper" ng-controller="SearchCtrl">
-      <div class="search-wrapper">
-          <input type="text" class="input" ng-model="searchString" placeholder="enter your search terms">
-          <button ng-click="trackSearchResults()">
-            Find a Song     
-          </button>
-      </div>
-      <ul ng-if="songs">
-        <li ng-repeat="song in currentSong.body.track_list">
-          <span>{{song.track.track_id}}</span>
-          <p>{{song.track.track_name}}</p>
-        </li>
-      </ul>
-   </div>
+   
     <!--songs page that will render search results-->
     <!--<div ng-controller="SongsCtrl" ng-if="!trackSearchResults()">
      <div>
