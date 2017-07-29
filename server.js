@@ -12,7 +12,7 @@ const port = process.env.PORT || 8080;
 app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(`${__dirname}/bower_components`));
+// app.use(express.static(`${__dirname}/bower_components`));
 app.use(express.static(`${__dirname}/public`));
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({ extended: 'true' })); // parse application/x-www-form-urlencoded
@@ -28,14 +28,14 @@ app.get('/', (req, res) => {
 
 // make get request to songs
 app.get('/songs', (req, res) => {
-  res.sendFile('./public/songs.html');
+  res.sendFile('./public/templates/songs.html', { root: __dirname });
 });
 
 // make post request to songs
 
 app.post('/songs', (req, res) => {
   // res.sendFile('./')
-})
+});
 
 app.listen(port, () => {
   console.log(`Our app is running on http://localhost:${port}`);
