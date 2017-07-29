@@ -26,6 +26,17 @@ app.get('/', (req, res) => {
   // res.render('index');
 });
 
+// make get request to songs
+app.get('/songs', (req, res) => {
+  res.sendFile('./public/songs.html');
+});
+
+// make post request to songs
+
+app.post('/songs', (req, res) => {
+  // res.sendFile('./')
+})
+
 app.listen(port, () => {
   console.log(`Our app is running on http://localhost:${port}`);
 });
