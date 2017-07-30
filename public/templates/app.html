@@ -12,7 +12,7 @@
       </div>
       <div ng-if="songs">
         <ul>
-          <li ng-repeat="song in currentSong.body.track_list">
+          <li ng-repeat="song in songs.body.track_list">
             <h3>{{song.track.track_id}}</h3>
             <h3>{{song.track.track_name}}</h3>
             <div ng-click="track.lyrics.get()">
