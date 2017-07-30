@@ -1,13 +1,4 @@
-// angular.module('karaoke-party')
-//   .controller('SearchCtrl', ($scope, $window) => {
-//     $scope.trackSearchResults = () => {
-//       $scope.songs = $window.exampleSongData;
-//       console.log($scope.songs, 'yo');
-//     };
-//   });
-
 angular.module('karaoke-party')
-// angular.module('karaoke-party')
   .service('musixmatch', ($http, $window) => {
     // api call. get tracks from api 
     this.tracksSearch = (query, callback) => {
@@ -33,19 +24,10 @@ angular.module('karaoke-party')
         });
     };
   })
-// angular.module('karaoke-party')
-//   .controller('AppCtrl', ($scope, $window, musixmatch) => {
-//     // show exampleSongData in app component
-//     // $scope.currentSong = $window.exampleSongData;
-//     $scope.currentSong = musixmatch.tracksSearch;
-//   });
-
-  .controller('SearchCtrl', ['$scope', '$http', '$templateCache', '$window',
-    ($scope, $window, $http, musixmatch, $templateCache) => {
-      // $scope.currentSong = musixmatch.tracksSearch;
-
-      $scope.currentSong = $window.exampleSongData;
-      
-    }]);
-
+  .controller('SearchCtrl', ['$scope', '$window', ($scope, $window, musixmatch) => {
+    $scope.trackSearchResults = () => {
+      $scope.songs = $window.exampleSongData;
+      console.log($scope.songs, 'yo');
+    };
+  }]);
 
