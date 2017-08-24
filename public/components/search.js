@@ -1,33 +1,88 @@
 angular.module('karaoke-party')
-  .service('musixmatch', ($http, $window) => {
-    // api call. get tracks from api 
-    this.tracksSearch = (query, callback) => {
-      const obj = {
-        q: query,
-        apikey: $window.MUSIXMATCH_API_KEY,
-      };
-      $http.get('http://api.musixmatch.com/ws/1.1', {
-        params: {
-          q: obj.q,
-          apikey: obj.key,
-        },
-      })
-        .then(({ data }) => {
-          if (callback) {
-            callback(data.items);
-          }
-        })
-        .catch(({ data }) => {
-          data.error.errors.forEach((err) => {
-            console.error(err.message);
-          });
+  // .service('musixmatch', function ($http, $window) {
+  // //   // api call. get tracks from api 
+  // // check if query matches user input
+  //   this.trackSearch = function (query, apikey, callback) {
+  //     const obj = {
+  //       q: query,
+  //       apikey: $window.MUSIXMATCH_API_KEY,
+  //     };
+
+  //     // check if q_track matches song query
+  //     const url = `https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=JSON_CALLBACK&q_track=${query}&quorum_factor=1&apikey=18e2e9aa66c7dc3985df593bf10c44b4`;
+  //     // check if url has song query
+  //     $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+  //       .success((data) => {
+  //         // check response. display results with angular
+  //         // do something with data 
+  //         console.log(data.message.body);
+  //       });
+  //   };
+  //   this.lyricsSearch = (trackId, apikey, callback) => {
+  //     const obj = {
+  //       q: trackId,
+  //       apikey: $window.MUSIXMATCH_API_KEY,
+  //     };
+
+
+  //     const url = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=JSON_CALLBACK&track_id=97405613&apikey=18e2e9aa66c7dc3985df593bf10c44b4';
+
+  //     $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+  //       .success((data) => {
+  //         console.log(data.message.body);
+  //       });
+  //   };
+  // })
+  // .directive('searchBar', (musixmatch, $window) => ({
+  //   restrict: 'AE',
+  //   replace: true,
+  //   template: '<input type="text" ng-model="searchData" placeholder="Enter a search" />',
+  //   link(scope, elem) {
+  //     elem.bind('click', () => {
+  //       console.log(scope.searchData, 'yo');
+  //       // call trackSearch function
+  //       if (scope.searchData) {
+  //         console.log($window.location, 'window');
+  //         musixmatch.trackSearch(scope.searchData);
+  //       }
+  //     });
+  //   },
+  // }))
+  .factory('musixmatchTracks', ($http, $q) => {
+    const service = {};
+    const url = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=JSON_CALLBACK&track_id=97405613&apikey=18e2e9aa66c7dc3985df593bf10c44b4';
+   const fetch = function () {
+    //  object that stores promises
+      const deferred = $q.defer();
+      console.log(deferred, 'deferred');
+      // make jsonp request. return callback on json data
+      $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+        .success((data) => {
+          // resolve data
+          deferred.resolve(data);
+        }).error(() => {
+          // handle erors
+          deferred.reject('There was an error');
         });
+      return deferred.promise;
     };
+    console.log(fetch().$$state.status, 'tracks');
+    return service;
   })
-  .controller('SearchCtrl', ['$scope', '$window', ($scope, $window, musixmatch) => {
-    $scope.trackSearchResults = () => {
-      $scope.songs = $window.exampleSongData;
-      console.log($scope.songs, 'yo');
+  .controller('SearchCtrl', ($scope, $window, musixmatchTracks) => {
+    // $scope.data = function () {
+    //   // code breaks here
+    //   musixmatchTracks.fetch()
+    //     .then((data) => {
+    //       $scope.data.artistData = data;
+    //     }, (data) => {
+    //       alert(data);
+    //     });
+    // };
+    $scope.songs = function() {
+      $scope.results = $window.exampleSongData;
     };
-  }]);
+    // musixmatch.trackSearch($scope.searchData, $window.MUSIXMATCH_API_KEY, $scope.search);
+    // musixmatch.lyricsSearch('97405613', $scope.search);
+  });
 

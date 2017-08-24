@@ -2,17 +2,18 @@
       <div class="search-wrapper">
           <form>
             <input type="text" class="input" ng-model="searchString" placeholder="enter your search terms">
-            <button ng-click="trackSearchResults()">
+            <button ng-click="songs()">
               Find a Song     
             </button>
           </form>
+          <!--<search-bar/>-->
       </div>
       <div ng-if="message">
         {{message}}
       </div>
       <div ng-if="songs">
         <ul>
-          <li ng-repeat="song in songs.body.track_list">
+          <li ng-repeat="song in results.body.track_list">
             <h3>{{song.track.track_id}}</h3>
             <h3>{{song.track.track_name}}</h3>
             <div ng-click="track.lyrics.get()">
