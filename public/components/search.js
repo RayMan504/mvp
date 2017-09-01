@@ -85,6 +85,7 @@ angular.module('karaoke-party')
       //   console.log('hello');
       //   console.log(data);
       // });
+      $scope.results = ($scope.data);
       // $scope.results = $window.exampleSongData;
     };
     // musixmatch.trackSearch($scope.searchData, $window.MUSIXMATCH_API_KEY, $scope.search);
