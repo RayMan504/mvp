@@ -3,7 +3,6 @@ angular.module('karaoke-party')
     // $scope.currentNavItem = 'page1';
     $scope.songs = function() {
       $scope.results = $http.get('https://api.musixmatch.com/ws/1.1', function(data) {
-        console.log('hello');
         console.log(data);
       });
       // $scope.results = ();
