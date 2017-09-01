@@ -2,7 +2,7 @@
       <div class="search-wrapper">
           <form>
             <input type="text" class="input" ng-model="searchString" placeholder="enter your search terms">
-            <button type="submit" ng-click="search()">
+            <button type="submit" ng-click="songs()">
               Find a Song     
             </button>
           </form>
@@ -21,7 +21,7 @@
             </div>
             <form action="/favorites" method="POST">
               <!--<input type=“text” name=“id” style=“display:none” value="{{song.track.track_id}}">{{song.track.track_id}}</input>-->
-              <input type=“text” name=“id” style=“display:none” value="{{song}}">
+              <input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
               <button type="Submit">Add To Favorites</button>
             </form>
           </li>
