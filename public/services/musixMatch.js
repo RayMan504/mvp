@@ -24,9 +24,10 @@ angular.module('karaoke-party')
           }
         })
         .catch(function({ data }) {
-          data.error.errors.forEach((err) => {
-            console.error(err.message);
-          });
+          console.error(data);
+          // data.error.errors.forEach((err) => {
+          //   console.error(err.message);
+          // });
         });
     };
     // this.tracks.lyrics.get = (query, callback) => {
