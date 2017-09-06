@@ -18,7 +18,7 @@ angular.module('karaoke-party')
         },
       })
         .then(function({ data }) {
-          console.log('yooo');
+          console.log();
           if (callback) {
             callback(data.items);
           }
