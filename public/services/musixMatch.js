@@ -4,9 +4,9 @@ angular.module('karaoke-party')
     // this.search = function(str, cb) {
     //   cb();
     // };
-    console.log('hey');
+    // console.log('hey');
     this.trackSearch = function(query, callback) {
-      console.log('hey bruh');
+      // console.log('hey bruh');
       const obj = {
         q: query,
         apikey: "18e2e9aa66c7dc3985df593bf10c44b4",
