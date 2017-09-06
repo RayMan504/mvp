@@ -1,5 +1,5 @@
 angular.module('karaoke-party')
-  .controller('SongsCtrl', ($scope, $http, $window, musixmatch) => {
+  .controller('SongsCtrl', ($scope, musixmatch) => {
     // $scope.currentNavItem = 'page1';
     $scope.musixmatch = musixmatch.trackSearch('colby', () => {});
     // $scope.results = 
