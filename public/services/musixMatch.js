@@ -4,11 +4,11 @@ angular.module('karaoke-party')
     // this.search = function(str, cb) {
     //   cb();
     // };
-    console.log('hey');
+    // console.log('hey');
     this.trackSearch = function(query, callback) {
       const obj = {
         q: query,
-        apikey: $window.MUSIXMATCH_API_KEY,
+        apikey: "18e2e9aa66c7dc3985df593bf10c44b4",
       };
       $http.get('http://api.musixmatch.com/ws/1.1', {
         params: {
