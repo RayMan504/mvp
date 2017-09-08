@@ -1,10 +1,6 @@
 angular.module('karaoke-party')
   .service('musixmatch', function ($http, $window) {
   // TODO
-    // this.search = function(str, cb) {
-    //   cb();
-    // };
-    // console.log('hey');
     this.trackSearch = function(query, callback) {
       // console.log('hey bruh');
       const obj = {
