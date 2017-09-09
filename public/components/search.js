@@ -69,7 +69,7 @@ angular.module('karaoke-party')
     console.log(fetch().$$state.status, 'tracks');
     return service;
   })
-  .controller('SearchCtrl', ($scope, $http, $window, musixmatchTracks) => {
+  .controller('SearchCtrl', ($scope, $http, $window, musixmatch) => {
     // $scope.data = function () {
     //   // code breaks here
     //   musixmatchTracks.fetch()
@@ -79,15 +79,10 @@ angular.module('karaoke-party')
     //       alert(data);
     //     });
     // };
-    console.log(musixmatchTracks.url);
-    $scope.songs = function () {
-      // $scope.results = $http.get('https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=JSON_CALLBACK&track_id=97405613&apikey=18e2e9aa66c7dc3985df593bf10c44b4', (data) => {
-      //   console.log('hello');
-      //   console.log(data);
-      // });
-      $scope.results = ($scope.data);
-      // $scope.results = $window.exampleSongData;
-    };
+    $scope.searchString = 'ALL';
+    $scope.musixmatch = musixmatch.trackSearch($scope.search, (data) => {
+      console.log(data);
+    });
     // musixmatch.trackSearch($scope.searchData, $window.MUSIXMATCH_API_KEY, $scope.search);
     // musixmatch.lyricsSearch('97405613', $scope.search);
   });
