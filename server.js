@@ -3,6 +3,7 @@ const morgan = require('morgan'); // log requests to the console (express4)
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
+
 const app = express();
 
 // set the port of our application

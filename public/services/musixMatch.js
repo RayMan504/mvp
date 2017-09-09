@@ -5,12 +5,12 @@ angular.module('karaoke-party')
       // console.log('hey bruh');
       const obj = {
         q: query,
-        apikey: "18e2e9aa66c7dc3985df593bf10c44b4",
+        apikey: $window.MUSIXMATCH_API_KEY,
       };
       $http.get('http://api.musixmatch.com/ws/1.1', {
         params: {
           q: obj.q,
-          apikey: obj.key,
+          apikey: obj.apikey,
         },
       })
         .then(function({ data }) {
