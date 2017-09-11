@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="karaoke-party">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>KARAOKE PARTY!</title>
@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script><!-- load angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
@@ -17,20 +15,24 @@
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
   </head>
-  <body ng-controller="MainCtrl">
+  <body ng-app="karaoke-party" layout="column" ng-controller="MainCtrl">
     <md-toolbar layout="row">
       <md-button class="menu" ng-click="toggleList()">
         <h3>MENU</h3>
       </md-button>
       <h1>KARAOKE-PARTY</h1>
     </md-toolbar>
-    <div class="container" layout="row" flex>
-      <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left">
-        <a href="#home">Home</a>
-        <a href="#favorites">Favorites</a></a>
+    <div class="container" layout="column">
+      <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" flex>
+        <md-button href="#home">Home</md-button>
+        <md-button href="#favorites">Favorites</md-button>
+        <!--<a href="#home">Home</a>-->
+        <!--<a href="#favorites">Favorites</a></a>-->
       </md-sidenav>
     </div>
-    <div ng-view></div> 
+    <md-content flex>
+      <div ng-view></div> 
+    </md-content>
    <!--button that when request will display tracks-->
    
     <!--songs page that will render search results-->
@@ -55,5 +57,12 @@
     <script src="components/songs.js"></script>
     <script src="components/favorites.js"></script>
     
+
+    <style>
+      .container {
+        /*width: 10000%*/
+        float: left;
+      }
+    </style>
   </body>
 </html>
