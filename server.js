@@ -32,15 +32,21 @@ MongoClient.connect('mongodb://favoredtracks:karaokeparty@ds129003.mlab.com:2900
   });
 });
 
-app.use('https://api.musixmatch.com/ws/1.1', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST');
+app.use('https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&quorum_factor=1', (req, res, next) => {
+  res.set({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With',
+    'Access-Control-Allow-Methods': 'GET, PUT, POST',
+  });
+  // res.header('Access-Control-Allow-Origin', '*');
+  // res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
+  // res.header('Access-Control-Allow-Methods', 'GET, PUT, POST');
   return next();
 });
 
 // set the home page route
 app.get('/', (req, res, next) => {
+  console.log('hello world');
   res.sendFile('./public/index.html');
   // ejs render automatically looks in the views folder
   // res.render('index');
@@ -48,13 +54,13 @@ app.get('/', (req, res, next) => {
 });
 
 // make get request to songs
-app.get('/songs', (req, res, next) => {
+app.get('/#/songs', (req, res, next) => {
   res.sendFile('./public/templates/songs.html', { root: __dirname });
   next();
 });
 
 // make post request to favorites
-app.post('/favorites', (req, res, next) => {
+app.post('/#/favorites', (req, res, next) => {
   db.collection('favorites').save(req.body, (err, result) => {
     if (err) return console.log(err);
 
@@ -65,7 +71,7 @@ app.post('/favorites', (req, res, next) => {
   console.log(req.body, 'hello');
 });
 
-app.get('/favorites', (req, res, next) => {
+app.get('/#/favorites', (req, res, next) => {
   // res.sendFile('./')
   db.collection('favorites').find().toArray((err, results) => {
     if (err) { console.error(err); }

@@ -1,13 +1,14 @@
 angular.module('karaoke-party')
   .service('musixmatch', function ($http, $window) {
   // TODO
-    this.trackSearch = function(query, callback, apikey) {
+    this.trackSearch = function (query, callback) {
       // console.log('hey bruh');
       const obj = {
         q: query,
         apikey: $window.MUSIXMATCH_API_KEY,
       };
-      $http.get('http://api.musixmatch.com/ws/1.1', {
+      // $http.defaults.headers.common.Authorization = 'Basic YmVlcDpib29w';
+      $http.get('https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&quorum_factor=1', {
         params: {
           q: obj.q,
           apikey: obj.apikey,
