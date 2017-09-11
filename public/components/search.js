@@ -79,8 +79,8 @@ angular.module('karaoke-party')
     //       alert(data);
     //     });
     // };
-    $scope.searchString = 'ALL';
-    $scope.musixmatch = musixmatch.trackSearch($scope.search, (data) => {
+    $scope.searchString;
+    $scope.musixmatch = musixmatch.trackSearch($scope.searchString, (data) => {
       console.log(data);
     });
     // musixmatch.trackSearch($scope.searchData, $window.MUSIXMATCH_API_KEY, $scope.search);

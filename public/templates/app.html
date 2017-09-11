@@ -1,31 +1,53 @@
-<div class="text-wrapper" >
-        <div class="search-wrapper" ng-controller="SearchCtrl">
-          <form>
-            <!--input is broken-->
-            <input type="search" class="input" ng-model="searchString" placeholder="enter your search terms">
-            <button type="submit" ng-click="musixmatch()">
-              Find a Song     
-            </button>
+<div class="text-wrapper" layout="row" flex>
+  <div class="search-wrapper" ng-controller="SearchCtrl" layout="row" flex>
+    <!--<form>-->
+      <!--input is broken-->
+      <!--<input type="search" class="input" ng-model="searchString" placeholder="enter your search terms">
+      <button type="submit" ng-click="musixmatch()">
+        Find a Song     
+      </button>
+    </form>-->
+    <input type="search" class="input" ng-model="searchString" placeholder="enter your search terms">
+    <md-button type="submit" ng-click-"musixmatch()">
+      Find A Song
+    </md-button>
+    <!--<search-bar/>-->
+  </div>
+  <div ng-if="message">
+    <md-content>
+      {{message}}
+    </md-content>
+  </div>
+  <div ng-if="songs" layout="column" flex>
+    <md-list>
+      <md-list-item ng-repeat="song in results.body.track_list">
+        <h3>{{song.track.track_id}}</h3>
+        <h3>{{song.track.track_name}}</h3>
+        <md-button ng-click="track.lyrics.get()">
+          <h3>{{song.track.album_coverart_100x100}}</h3>
+        </md-button>
+        <md-content>
+          <form action="/favorites" method="POST">
+          <!--<input type=“text” name=“id” style=“display:none” value="{{song.track.track_id}}">{{song.track.track_id}}</input>-->
+            <input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
+            <md-button type="Submit">Add To Favorites</md-button>
           </form>
-          <!--<search-bar/>-->
-      </div>
-      <div ng-if="message">
-        {{message}}
-      </div>
-      <div ng-if="songs">
-        <ul>
-          <li ng-repeat="song in results.body.track_list">
-            <h3>{{song.track.track_id}}</h3>
-            <h3>{{song.track.track_name}}</h3>
-            <div ng-click="track.lyrics.get()">
-              <h3>{{song.track.album_coverart_100x100}}</h3>
-            </div>
-            <form action="/favorites" method="POST">
-              <!--<input type=“text” name=“id” style=“display:none” value="{{song.track.track_id}}">{{song.track.track_id}}</input>-->
-              <input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
-              <button type="Submit">Add To Favorites</button>
-            </form>
-          </li>
-        </ul>
-      </div>
-   </div>
+        </md-content>
+      </md-list-item>
+    </md-list>
+    <!--<ul>
+      <li ng-repeat="song in results.body.track_list">
+        <h3>{{song.track.track_id}}</h3>
+        <h3>{{song.track.track_name}}</h3>
+        <div ng-click="track.lyrics.get()">
+          <h3>{{song.track.album_coverart_100x100}}</h3>
+        </div>
+        <form action="/favorites" method="POST">-->
+          <!--<input type=“text” name=“id” style=“display:none” value="{{song.track.track_id}}">{{song.track.track_id}}</input>-->
+          <!--<input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
+          <button type="Submit">Add To Favorites</button>
+        </form>
+      </li>
+    </ul>-->
+  </div>
+</div>
