@@ -11,7 +11,8 @@ angular.module('karaoke-party')
       const url = `https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=JSON_CALLBACK&q_track=${obj.q}&quorum_factor=1&apikey=${obj.apikey}`;
       $http.jsonp(url, { jsonpCallbackParam: 'callback' })
         .success((data) => {
-          console.log(data, 'hey');
+          console.log(data.message.body, 'hey');
+          callback(data);
         });
       // .then(function({ data }) {
       //   console.log();
