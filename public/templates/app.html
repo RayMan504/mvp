@@ -1,6 +1,7 @@
 <div class="text-wrapper" ng-controller="SearchCtrl" layout="row" flex>
   <div class="search-wrapper" layout="row" flex>
     <!--<search-bar/>-->
+    <!--bind ng-model by assigning ng-model variable to value in controller-->
     <input type="search" class="input" ng-model="searchString" placeholder="enter your search terms">
     <md-button type="submit" ng-click="onClick()">
       Find A Song
