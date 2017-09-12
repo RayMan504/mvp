@@ -25,7 +25,6 @@ angular.module('karaoke-party')
     $scope.onClick = function() {
       $scope.musixmatch = musixmatch.trackSearch($scope.searchString, (data) => {
         $scope.results = data;
-        console.log($scope.results.message.body.track_list, 'hello');
       });
     };
   });
