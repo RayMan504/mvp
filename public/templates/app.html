@@ -12,21 +12,23 @@
       {{message}}
     </md-content>
   </div>
-  <div ng-controller="SearchCtrl" ng-if="results">
-    <md-list>
-      <md-list-item ng-repeat="song in results.message.body.track_list">
-        <h3>{{song.track.track_id}}</h3>
-        <h3>{{song.track.track_name}}</h3>
-        <md-button ng-click="track.lyrics.get()">
-          <h3>{{song.track.album_coverart_100x100}}</h3>
-        </md-button>
-        <md-content>
-          <form action="/favorites" method="POST">
-            <input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
-            <md-button type="Submit">Add To Favorites</md-button>
-          </form>
-        </md-content>
-      </md-list-item>
-    </md-list>
+  <div ng-if="results">
+    <md-content>
+      <md-list>
+        <md-list-item ng-repeat="song in results.message.body.track_list">
+          <!--<h3>{{song.track.track_id}}</h3>-->
+          <h3>{{song.track.track_name}}</h3>
+          <md-button ng-click="track.lyrics.get()">
+            <h3>Lyrics</h3>
+          </md-button>
+          <md-content>
+            <form action="/favorites" method="POST">
+              <input type=“text” name=“id” style=“display:none” value="{{song}}"></input>
+              <md-button type="Submit">Add To Favorites</md-button>
+            </form>
+          </md-content>
+        </md-list-item>
+      </md-list>
+    </md-content>
   </div>
 </div>
