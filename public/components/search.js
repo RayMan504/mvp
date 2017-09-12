@@ -21,7 +21,7 @@ angular.module('karaoke-party')
   //   return service;
   // })
   .controller('SearchCtrl', ($scope, $http, $window, musixmatch) => {
-    $scope.searchString = 'hakuna matata';
+    $scope.searchString = '';
     $scope.onClick = function() {
       $scope.musixmatch = musixmatch.trackSearch($scope.searchString, (data) => {
         $scope.results = data;
