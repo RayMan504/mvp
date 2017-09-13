@@ -12,13 +12,13 @@
       {{message}}
     </md-content>
   </div>
-  <div ng-if="results">
+  <div ng-controller="SongsCtrl" ng-if="results">
     <md-content>
       <md-list>
         <md-list-item ng-repeat="song in results.message.body.track_list">
           <!--<h3>{{song.track.track_id}}</h3>-->
           <h3>{{song.track.track_name}}</h3>
-          <md-button ng-click="track.lyrics.get()">
+          <md-button ng-click="findLyrics(song.track.track_id)">
             <h3>Lyrics</h3>
           </md-button>
           <md-content>

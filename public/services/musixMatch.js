@@ -13,39 +13,16 @@ angular.module('karaoke-party')
         .success((data) => {
           callback(data);
         });
-      // .then(function({ data }) {
-      //   console.log();
-      //   if (callback) {
-      //     callback(data.items);
-      //   }
-      // })
-      // .catch(function({ data }) {
-      // console.error(data);
-      // data.error.errors.forEach((err) => {
-      //   console.error(err.message);
-      // });
-      // });
     };
-    // this.tracks.lyrics.get = (query, callback) => {
-    //   const obj = {
-    //     q: query,
-    //     apikey: $window.MUSIXMATCH_API_KEY,
-    //   };
-    //   $http.get('http://api.musixmatch.com/ws/1.1', {
-    //     params: {
-    //       q: obj.q,
-    //       apikey: obj.key,
-    //     },
-    //   })
-    //     .then(({ data }) => {
-    //       if (callback) {
-    //         callback(data.items);
-    //       }
-    //     })
-    //     .catch(({ data }) => {
-    //       data.error.errors.forEach((err) => {
-    //         console.error(err.message);
-    //       });
-    //     });
-    // };
+    this.getLyrics = (trackId, callback) => {
+      const obj = {
+        q: trackId,
+        apikey: $window.MUSIXMATCH_API_KEY,
+      };
+      const url = `https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=JSON_CALLBACK&track_id=${obj.q}&apikey=${obj.apikey}`;
+      $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+        .success((data) => {
+          callback(data);
+        });
+    };
   });
