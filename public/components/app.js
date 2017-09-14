@@ -1,4 +1,4 @@
-angular.module('karaoke-party', ['ngRoute', 'ngMaterial'])
+angular.module('karaoke-party', ['ngRoute', 'ngMaterial', 'ngAnimate'])
   .config(($routeProvider) => {
     $routeProvider
       .when('/home', {

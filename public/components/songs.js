@@ -5,8 +5,9 @@ angular.module('karaoke-party')
     // $scope.search = 'ALL';
     $scope.findLyrics = function(trackId) {
       $scope.musixmatch = musixmatch.getLyrics(trackId, (data) => {
-        $scope.results = data;
-        console.log($scope.results.message.body.lyrics.lyrics_body, 'hello');
+        $scope.lyrics = data;
+        console.log($scope.lyrics, 'lyrics that dont appear');
+        console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
       });
     };
   })

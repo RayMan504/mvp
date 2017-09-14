@@ -15,7 +15,7 @@
   <div ng-controller="SongsCtrl" ng-if="results">
     <md-content>
       <md-list>
-        <md-list-item ng-if='song' ng-repeat="song in results.message.body.track_list">
+        <md-list-item ng-if='song' ng-hide="lyrics" ng-repeat="song in results.message.body.track_list">
           <!--<h3>{{song.track.track_id}}</h3>-->
           <h3>{{song.track.track_name}}</h3>
           <md-button ng-click="findLyrics(song.track.track_id)">
@@ -29,5 +29,10 @@
         </md-list-item>
       </md-list>
     </md-content>
+    <div ng-if="lyrics">
+      <md-content class="lyrics" ng-animate="'highlight'">
+        {{lyrics.message.body.lyrics.lyrics_body}}
+      </md-content>
+    </div>
   </div>
 </div>
