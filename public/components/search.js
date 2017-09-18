@@ -20,10 +20,10 @@ angular.module('karaoke-party')
   //   console.log(fetch().$$state.status, 'tracks');
   //   return service;
   // })
-  .controller('SearchCtrl', ($scope, $http, $window, musixmatch) => {
+  .controller('SearchCtrl', ($scope, $http, $window, genius) => {
     $scope.searchString = '';
     $scope.onClick = function() {
-      $scope.musixmatch = musixmatch.trackSearch($scope.searchString, (data) => {
+      $scope.genius = genius.trackSearch($scope.searchString, (data) => {
         // if (data.message.body.track_list.length === 0) {
         //   $scope.message = "invalid query";
         //   console.log($scope.message, 'empty results array');

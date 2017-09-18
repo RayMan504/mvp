@@ -18,10 +18,12 @@
         <md-list-item ng-if='song' ng-hide="lyrics" ng-repeat="song in results.response.hits">
           <!--<h3>{{song.track.track_id}}</h3>-->
           <h3>{{song.result.full_title}}</h3>
+          <a href="{{song.result.url}}"></a>
           <img src="{{song.result.header_image_thumbnail_url}}">
-          <md-button ng-click="findLyrics(song.track.track_id)">
+          <button go-click="{{song.result.url}}">Lyrics!</button>
+          <!--<md-button ng-click="findLyrics(song.result.url)">
             <h3>Lyrics</h3>
-          </md-button>
+          </md-button>-->
           <md-content>
             <form action="/favorites" method="POST">
               <md-button type="Submit">Add To Favorites</md-button>

@@ -1,10 +1,23 @@
 angular.module('karaoke-party')
-  .controller('SongsCtrl', ($scope, $http, musixmatch) => {
+  .directive('goClick', $location => function (scope, element, attrs) {
+    let path;
+
+    attrs.$observe('goClick', (val) => {
+      path = val;
+    });
+
+    element.bind('click', () => {
+      scope.$apply(() => {
+        $location.path(path);
+      });
+    });
+  })
+  .controller('SongsCtrl', ($scope, $http, genius) => {
     // $scope.currentNavItem = 'page1';
     // BOUND TO NG-MODEL="SEARCH"
     // $scope.search = 'ALL';
-    $scope.findLyrics = function(trackId) {
-      $scope.musixmatch = musixmatch.getLyrics(trackId, (data) => {
+    $scope.findLyrics = function (lyricsUrl) {
+      $scope.genius = genius.getLyrics(lyricsUrl, (data) => {
         $scope.lyrics = data;
         console.log($scope.lyrics, 'lyrics that dont appear');
         console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
