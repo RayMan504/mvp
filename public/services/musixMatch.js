@@ -5,11 +5,17 @@ angular.module('karaoke-party')
       // console.log('hey bruh');
       const obj = {
         q: query,
-        apikey: '18e2e9aa66c7dc3985df593bf10c44b4',
+        // apikey: '18e2e9aa66c7dc3985df593bf10c44b4',
+        apikey: $window.GENIUS_ACCESS_TOKEN,
       };
       // $http.defaults.headers.common.Authorization = 'Basic YmVlcDpib29w';
-      const url = `https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=JSON_CALLBACK&q_track=${obj.q}&quorum_factor=1&apikey=${obj.apikey}`;
-      $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+      const url = `https://api.genius.com/search?q=${obj.q}&access_token=${obj.apikey}`
+      // const url = `https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=JSON_CALLBACK&q_track=${obj.q}&quorum_factor=1&apikey=${obj.apikey}`;
+      // $http.jsonp(url, { jsonpCallbackParam: 'callback' })
+      //   .success((data) => {
+      //     callback(data);
+      //   });
+      $http.get(url)
         .success((data) => {
           callback(data);
         });

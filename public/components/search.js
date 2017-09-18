@@ -24,11 +24,12 @@ angular.module('karaoke-party')
     $scope.searchString = '';
     $scope.onClick = function() {
       $scope.musixmatch = musixmatch.trackSearch($scope.searchString, (data) => {
-        if (data.message.body.track_list.length === 0) {
-          $scope.message = "invalid query";
-          console.log($scope.message, 'empty results array');
-        }
+        // if (data.message.body.track_list.length === 0) {
+        //   $scope.message = "invalid query";
+        //   console.log($scope.message, 'empty results array');
+        // }
         $scope.results = data;
+        console.log($scope.results.response.hits, 'genius api results');
       });
     };
   });
