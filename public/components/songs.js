@@ -16,11 +16,11 @@ angular.module('karaoke-party')
     // $scope.currentNavItem = 'page1';
     // BOUND TO NG-MODEL="SEARCH"
     // $scope.search = 'ALL';
-    $scope.findLyrics = function (lyricsUrl) {
-      $scope.genius = genius.getLyrics(lyricsUrl, (data) => {
+    $scope.findLyrics = function (artist, song) {
+      $scope.genius = genius.getLyrics(artist, song, (data) => {
         $scope.lyrics = data;
-        console.log($scope.lyrics, 'lyrics that dont appear');
-        console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
+        console.log($scope.lyrics.lyrics, 'lyrics that dont appear');
+        // console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
       });
     };
   })

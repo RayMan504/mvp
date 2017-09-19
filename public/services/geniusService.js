@@ -13,14 +13,18 @@ angular.module('karaoke-party')
           callback(data);
         });
     };
-    this.getLyrics = (lyricsUrl, callback) => {
+    
+    this.getLyrics = (artist, song, callback) => {
       const obj = {
-        q: lyricsUrl,
-        apikey: $window.GENIUS_ACCESS_TOKEN,
+        q: artist,
+        title: song,
+        // apikey: $window.GENIUS_ACCESS_TOKEN,
       };
-      const url = `${obj.q}?access_token=${obj.apikey}`;
+      // const url = `http://api.lololyrics.com/0.5/getLyric?artist=${obj.q}&track=${obj.title}`;
+      const url = `https://api.lyrics.ovh/v1/${obj.q}/${obj.title}`;
       $http.get(url)
         .success((data) => {
+          console.log('hello');
           callback(data);
         });
       // const url = `https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=JSON_CALLBACK&track_id=${obj.q}&apikey=${obj.apikey}`;

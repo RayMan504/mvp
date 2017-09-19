@@ -20,10 +20,10 @@
           <h3>{{song.result.full_title}}</h3>
           <a href="{{song.result.url}}"></a>
           <img src="{{song.result.header_image_thumbnail_url}}">
-          <button go-click="{{song.result.url}}">Lyrics!</button>
-          <!--<md-button ng-click="findLyrics(song.result.url)">
+          <!--<button go-click="{{song.result.url}}">Lyrics!</button>-->
+          <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title)">
             <h3>Lyrics</h3>
-          </md-button>-->
+          </md-button>
           <md-content>
             <form action="/favorites" method="POST">
               <md-button type="Submit">Add To Favorites</md-button>
@@ -34,7 +34,7 @@
     </md-content>
     <div ng-if="lyrics">
       <md-content class="lyrics" ng-animate="'highlight'">
-        {{lyrics.message.body.lyrics.lyrics_body}}
+        {{lyrics.lyrics}}
       </md-content>
     </div>
   </div>
