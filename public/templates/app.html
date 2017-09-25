@@ -12,26 +12,29 @@
       <h3>{{message}}</h3>
     </md-content>
   </div>
-  <div ng-controller="SongsCtrl" ng-if="results">
-    <md-content>
-      <md-list>
-        <md-list-item ng-if='song' ng-hide="lyrics" ng-repeat="song in results.response.hits">
-          <!--<h3>{{song.track.track_id}}</h3>-->
-          <h3>{{song.result.full_title}}</h3>
-          <a href="{{song.result.url}}"></a>
-          <img src="{{song.result.header_image_thumbnail_url}}">
-          <!--<button go-click="{{song.result.url}}">Lyrics!</button>-->
-          <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title)">
-            <h3>Lyrics</h3>
-          </md-button>
-          <md-content>
-            <form action="/favorites" method="POST">
-              <md-button type="Submit">Add To Favorites</md-button>
-            </form>
-          </md-content>
-        </md-list-item>
-      </md-list>
-    </md-content>
+  <div ng-controller="SongsCtrl">
+    <div ng-if="results" ng-hide="lyrics">
+       <md-content>
+        <md-list>
+          <md-list-item ng-repeat="song in results.response.hits">
+            <!--<h3>{{song.track.track_id}}</h3>-->
+            <h3>{{song.result.full_title}}</h3>
+            <a href="{{song.result.url}}"></a>
+            <img src="{{song.result.header_image_thumbnail_url}}">
+            <!--<button go-click="{{song.result.url}}">Lyrics!</button>-->
+            <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title)">
+              <h3>Lyrics</h3>
+            </md-button>
+            <md-content>
+              <form action="/favorites" method="POST">
+                <input type=“text” class="postInput" name=“id” style=“display:none” value="{{song.result}}"></input>
+                <md-button type="Submit">Add To Favorites</md-button>
+              </form>
+            </md-content>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </div>
     <div ng-if="lyrics">
       <md-content class="lyrics" ng-animate="'highlight'">
         {{lyrics.lyrics}}
