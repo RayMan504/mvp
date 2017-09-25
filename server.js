@@ -32,7 +32,7 @@ MongoClient.connect('mongodb://favoredtracks:karaokeparty@ds129003.mlab.com:2900
   });
 });
 
-app.use('https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&quorum_factor=1', (req, res, next) => {
+app.use('https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&quorum_factor=1', (req, res) => {
   // res.set({
   //   'Access-Control-Allow-Origin': '*',
   //   'Access-Control-Allow-Headers': 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With',
@@ -41,12 +41,10 @@ app.use('https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=ca
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST');
-  return next();
 });
 
 // set the home page route
 app.get('/', (req, res) => {
-  console.log('hello world');
   res.sendFile('./public/index.html');
   // ejs render automatically looks in the views folder
   // res.render('index');
@@ -61,10 +59,8 @@ app.get('/songs', (req, res) => {
 app.post('/favorites', (req, res) => {
   db.collection('favorites').save(req.body, (err, result) => {
     if (err) return console.log(err);
-    console.log('saved to database');
     res.redirect('/');
   });
-  console.log(req.body, 'hello');
 });
 
 app.get('/favorites', (req, res) => {

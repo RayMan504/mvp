@@ -10,5 +10,11 @@ angular.module('karaoke-party')
         // console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
       });
     };
+    $scope.post = function (song) {
+      console.log(song, 'hello');
+      $http.post('/favorites', song).then((response) => {
+        console.log(response, 'saved in database');
+      });
+    };
   })
 ;

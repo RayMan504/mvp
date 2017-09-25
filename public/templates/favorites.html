@@ -2,9 +2,16 @@
   <h3>Where favoite songs will display</h3>
   <md-content>
     <md-list>
-      {{content}}
-      <md-list-item ng-repeat"favorite in content" ng-init="parJson=parseJson(favorite)">
-        {{favorite}}
+      <!--{{content}}-->
+      <md-list-item ng-repeat="favorite in content">
+        <h3>{{favorite.result.full_title}}</h3>
+        <a href="{{favorite.result.url}}"></a>
+        <img src="{{favorite.result.header_image_thumbnail_url}}">
+        <div ng-controller="SongsCtrl">
+          <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title)">
+            <h3>Lyrics</h3>
+          </md-button>
+        </div>
       </md-list-item>
     </md-list>
   </md-content>

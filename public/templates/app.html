@@ -27,8 +27,7 @@
             </md-button>
             <md-content>
               <form action="/favorites" method="POST">
-                <input type=“text” class="postInput" name=“id” style=“display:none” value="{{song.result}}"></input>
-                <md-button type="Submit">Add To Favorites</md-button>
+                <md-button ng-click="post(song)" type="Submit">Add To Favorites</md-button>
               </form>
             </md-content>
           </md-list-item>
