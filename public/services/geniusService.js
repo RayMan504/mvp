@@ -4,7 +4,7 @@ angular.module('karaoke-party')
     this.trackSearch = function (query, callback) {
       const obj = {
         q: query,
-        apikey: 'jQYhxGM7PD8x_hhV-_GV-Oj_B28uy-Tq3ZU6-sUTD5A6Zh_1KdBjEOD_hkNDLMEj',
+        apikey: $window.GENIUS_ACCESS_TOKEN,
       };
       const url = `https://api.genius.com/search?q=${obj.q}&access_token=${obj.apikey}`;
       $http.get(url)

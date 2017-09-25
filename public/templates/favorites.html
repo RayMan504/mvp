@@ -8,9 +8,12 @@
             <h3>{{favorite.result.full_title}}</h3>
             <a href="{{favorite.result.url}}"></a>
             <img src="{{favorite.result.header_image_thumbnail_url}}">
+            <md-button ng-click="findLyrics(favorite.result.primary_artist.name, favorite.result.title)">
+              <h3>Lyrics</h3>
+            </md-button>
             <div>
-              <md-button ng-click="findLyrics(favorite.result.primary_artist.name, favorite.result.title)">
-                <h3>Lyrics</h3>
+              <md-button ng-click="removeSong()">
+                <h3>Remove</h3>
               </md-button>
             </div>
           </md-list-item>

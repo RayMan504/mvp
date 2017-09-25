@@ -9,4 +9,9 @@ angular.module('karaoke-party')
         // Second function handles error
         $scope.content = 'Something went wrong';
       });
+    $scope.removeSong = function() {
+      $http.delete('/favorites').then((response) => {
+        console.log('response');
+      });
+    };
   });
