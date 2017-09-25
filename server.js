@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan'); // log requests to the console (express4)
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
 
 
 const app = express();
@@ -68,6 +69,14 @@ app.get('/favorites', (req, res) => {
   db.collection('favorites').find().toArray((err, results) => {
     if (err) { console.error(err); }
     console.log(results);
+    res.send(results);
+  });
+});
+
+app.delete('/favorites/:id', (req, res) => {
+  db.collection('favorites').remove({ _id: new ObjectId(req.params.id) }, (err, results) => {
+    if (err) { console.error(err); }
+    // console.log(results, 'deleted song?');
     res.send(results);
   });
 });
