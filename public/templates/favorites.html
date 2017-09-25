@@ -1,3 +1,11 @@
 <div ng-controller="FavoritesCtrl">
   <h3>Where favoite songs will display</h3>
+  <md-content>
+    <md-list>
+      {{content}}
+      <md-list-item ng-repeat"favorite in content" ng-init="parJson=parseJson(favorite)">
+        {{favorite}}
+      </md-list-item>
+    </md-list>
+  </md-content>
 </div>
