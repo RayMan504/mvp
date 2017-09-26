@@ -20,7 +20,7 @@
             <h3>{{song.result.full_title}}</h3>
             <a href="{{song.result.url}}"></a>
             <img src="{{song.result.header_image_thumbnail_url}}">
-            <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title)">
+            <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title); playOrStop()">
               <h3>Lyrics</h3>
             </md-button>
             <md-content>

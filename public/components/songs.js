@@ -6,7 +6,6 @@ angular.module('karaoke-party')
     $scope.findLyrics = function (artist, song) {
       $scope.genius = genius.getLyrics(artist, song, (data) => {
         $scope.lyrics = data;
-        console.log($scope.lyrics.lyrics, 'lyrics that dont appear');
         // console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
       });
     };
@@ -15,6 +14,10 @@ angular.module('karaoke-party')
       $http.post('/favorites', song).then((response) => {
         console.log(response, 'saved in database');
       });
+    };
+
+    $scope.playOrStop = function() {
+      console.log("playOrStop");
     };
   })
 ;

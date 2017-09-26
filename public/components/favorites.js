@@ -4,6 +4,7 @@ angular.module('karaoke-party')
       .then((response) => {
         // First function handles success
         $scope.content = response.data;
+        console.log($scope.content, 'hello');
       }, (response) => {
         // Second function handles error
         $scope.content = 'Something went wrong';
