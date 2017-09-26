@@ -36,8 +36,6 @@ const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 const redirect_uri = process.env.REDIRECT_URI;
 
-const GENIUS_ACCESS_TOKEN = this.process.env.GENIUS_ACCESS_TOKEN;
-
 
 // mongodb
 let db;
