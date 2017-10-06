@@ -1,24 +1,25 @@
 <div ng-controller="FavoritesCtrl">
-  <h3>Where favoite songs will display</h3>
   <div ng-controller="SongsCtrl">
     <div ng-if="content" ng-hide="lyrics">
-      <md-content>
-        <md-list>
-          <md-list-item ng-repeat="favorite in content">
-            <h3>{{favorite.result.full_title}}</h3>
-            <a href="{{favorite.result.url}}"></a>
+      <div class="container-fluid" ng-repeat="favorite in content">
+        <div class="row">
+          <h3>{{favorite.result.full_title}}</h3>
+          <a href="{{favorite.result.url}}"></a>
+          <div class="col-xs-4">
             <img src="{{favorite.result.header_image_thumbnail_url}}">
-            <md-button ng-click="findLyrics(favorite.result.primary_artist.name, favorite.result.title)">
-              <h3>Lyrics</h3>
-            </md-button>
-            <div>
-              <md-button ng-click="removeSong(favorite._id)">
-                <h3>Remove</h3>
-              </md-button>
-            </div>
-          </md-list-item>
-        </md-list>
-      </md-content>
+          </div>
+          <div class="col-xs-2">
+            <button class="btn btn-primary fa fa-music" ng-click="findLyrics(favorite.result.primary_artist.name, favorite.result.title)">
+              Lyrics
+            </button>
+          </div>
+          <div class="col-xs-2">
+            <button class="btn btn-danger fa fa-remove" ng-click="removeSong(favorite._id)">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
       <div ng-if="lyrics">
           <md-content class="lyrics" ng-animate="'highlight'">

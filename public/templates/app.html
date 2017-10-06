@@ -3,9 +3,11 @@
     <!--<search-bar/>-->
     <!--bind ng-model by assigning ng-model variable to value in controller-->
     <input type="search" class="input" ng-model="searchString" placeholder="enter your search terms">
-    <md-button type="submit" ng-click="onClick()">
-      Find A Song
-    </md-button>
+    <div class="col-xs-1">
+      <button class="btn btn-primary fa fa-search" type="submit" ng-click="onClick()">
+        Find A Song
+      </button>
+    </div>
   </div>
   <div ng-if="message">
     <md-content>
@@ -14,39 +16,33 @@
   </div>
   <div ng-controller="SongsCtrl">
     <div ng-if="results" ng-hide="lyrics">
-       <md-content>
-        <md-list>
-          <md-list-item ng-repeat="song in results.response.hits">
-            <h3>{{song.result.full_title}}</h3>
-            <a href="{{song.result.url}}"></a>
-            <img src="{{song.result.header_image_thumbnail_url}}">
-            <md-button ng-click="findLyrics(song.result.primary_artist.name, song.result.title); playOrStop()">
-              <h3>Lyrics</h3>
-            </md-button>
-            <md-content>
-              <form action="/favorites" method="POST">
-                <md-button ng-click="post(song)" type="Submit">Add To Favorites</md-button>
-              </form>
-            </md-content>
-          </md-list-item>
-        </md-list>
-      </md-content>
+      <div class="container-fluid" ng-repeat="song in results.response.hits">
+        <div class="row">
+          <h3>{{song.result.full_title}}</h3>
+          <a href="{{song.result.url}}"></a>
+          <div class="col-xs-4">
+            <img class="img-responsive" src="{{song.result.header_image_thumbnail_url}}">
+          </div>
+          <div class="col-xs-4">
+            <iframe src="https://open.spotify.com/embed?uri=spotify:track:4kflIGfjdZJW4ot2ioixTB" width="300" height="300"></iframe>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-primary fa fa-music" ng-click="findLyrics(song.result.primary_artist.name, song.result.title); playOrStop()">
+              Lyrics
+            </button>
+          </div>
+          <div class="col-xs-4">
+            <form action="/favorites" method="POST">
+              <div class="col-xs-*">
+                <button class="btn btn-success fa fa-heart" ng-click="post(song)" type="Submit"> Add To Favorites</md-button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <div ng-if="lyrics">
-      <div class="spotify-container">
-          <div class="login-container" id="js-login-container">
-            <md-button ng-click="login()"class="btn btn--login" id="js-btn-login">Login with Spotify</md-button>
-          </div>
-          <div class="main-container hidden" id="js-main-container"></div>
-      </div>
       <md-content class="lyrics" ng-animate="'highlight'">
-        <title>Now Playing on Spotify</title>
-        <div class="container">
-          <div class="login-container hidden" id="js-login-container">
-            <button class="btn btn--login" id="js-btn-login">Login with Spotify</button>
-          </div>
-          <div id="js-main-container"></div>
-        </div>
         {{lyrics.lyrics}}
       </md-content>
     </div>

@@ -8,6 +8,7 @@ const spotifyPlayer = new SpotifyPlayer({
 });
 
 const template = function (data) {
+  console.log('am i hitting?');
   return `
     <div class="main-wrapper">
       <img class="now-playing__img" src="${data.item.album.images[0].url}">

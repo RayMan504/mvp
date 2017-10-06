@@ -1,0 +1,30 @@
+{
+  // Use IntelliSense to learn about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceRoot}/server.js",
+      "protocol": "inspector",
+      "outFiles": [],
+      "env": {
+        "NODE_ENV": "development",
+        "CLIENT_ID": "c4de97a655db48398b8b242d74e260ff",
+        "CLIENT_SECRET": "1a5655346b284d2eaf667432ab8ca679",
+        "REDIRECT_URI": "http://localhost:8080/callback"
+      }
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Process",
+      "address": "localhost",
+      "port": 5858,
+      "outFiles": []
+    }
+  ]
+}

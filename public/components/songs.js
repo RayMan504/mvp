@@ -16,8 +16,10 @@ angular.module('karaoke-party')
       });
     };
 
-    $scope.login = function() {
-      console.log("playOrStop");
+    $scope.login = function () {
+      $http.get('/login').then((response) => {
+        console.log(response, "logging in....");
+      });
     };
   })
 ;
