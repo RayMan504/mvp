@@ -76,6 +76,12 @@ app.get('/', (req, res) => {
   // res.render('index');
 });
 
+// app.get('/home', (req, res) => {
+//   res.sendFile('./public/templates/app.html', { root: __dirname });
+//   // ejs render automatically looks in the views folder
+//   // res.render('index');
+// });
+
 // make get request to songs
 app.get('/songs', (req, res) => {
   res.sendFile('./public/templates/songs.html', { root: __dirname });

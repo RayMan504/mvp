@@ -1,5 +1,5 @@
 angular.module('karaoke-party', ['ngRoute', 'ngMaterial', 'ngAnimate'])
-  .config(($routeProvider) => {
+  .config(($routeProvider, $locationProvider) => {
     $routeProvider
       .when('/home', {
         templateUrl: './templates/app.html',
@@ -7,5 +7,7 @@ angular.module('karaoke-party', ['ngRoute', 'ngMaterial', 'ngAnimate'])
       .when('/favorites', {
         templateUrl: './templates/favorites.html',
       });
+    // use the HTML5 History API
+    // $locationProvider.html5Mode(true);
   });
 

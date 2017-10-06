@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <base href="/">
     <title>KARAOKE PARTY!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"><!-- load bootstrap -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,19 +27,13 @@
     </md-toolbar>
     <div class="container" layout="column">
       <md-sidenav class="md-whiteframe-4dp" md-component-id="left" flex>
-        <md-button href="#home">Home</md-button>
-        <md-button href="#favorites">Favorites</md-button>
+        <md-button href="#/home">Home</md-button>
+        <md-button href="#/favorites">Favorites</md-button>
       </md-sidenav>
     </div>
     
     <md-content flex>
       <div ng-view></div>
-      <div class="spotify-container">
-        <div class="login-container hidden" id="js-login-container">
-          <button class="btn btn--login" id="js-btn-login">Login with Spotify</button>
-        </div>
-        <div class="hidden" id="js-main-container"></div>
-      </div> 
     </md-content>
    
     <script src="spotify-player.js"></script>
@@ -60,9 +55,7 @@
     
 
     <style>
-      .title {
-        text-align: center;
-      }
+
       /** {
         box-sizing: border-box;
       }*/

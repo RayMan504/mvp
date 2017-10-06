@@ -17,23 +17,23 @@
   <div ng-controller="SongsCtrl">
     <div ng-if="results" ng-hide="lyrics">
       <div class="container-fluid" ng-repeat="song in results.response.hits">
+        <h3>{{song.result.full_title}}</h3>
         <div class="row">
-          <h3>{{song.result.full_title}}</h3>
           <a href="{{song.result.url}}"></a>
-          <div class="col-xs-4">
+          <div class=".col-lg-4">
             <img class="img-responsive" src="{{song.result.header_image_thumbnail_url}}">
           </div>
-          <div class="col-xs-4">
+          <div class=".col-lg-4">
             <iframe src="https://open.spotify.com/embed?uri=spotify:track:4kflIGfjdZJW4ot2ioixTB" width="300" height="300"></iframe>
           </div>
-          <div class="col-xs-4">
+          <div class=".col-lg-4">
             <button class="btn btn-primary fa fa-music" ng-click="findLyrics(song.result.primary_artist.name, song.result.title); playOrStop()">
               Lyrics
             </button>
           </div>
-          <div class="col-xs-4">
+          <div class=".col-lg-4">
             <form action="/favorites" method="POST">
-              <div class="col-xs-*">
+              <div class=".col-sm-*">
                 <button class="btn btn-success fa fa-heart" ng-click="post(song)" type="Submit"> Add To Favorites</md-button>
               </div>
             </form>
