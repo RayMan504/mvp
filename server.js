@@ -85,7 +85,7 @@ app.get('/songs', (req, res) => {
 app.post('/favorites', (req, res) => {
   db.collection('favorites').save(req.body, (err, result) => {
     if (err) return console.log(err);
-    res.redirect('/');
+    res.redirect('/#/home');
   });
 });
 
@@ -102,7 +102,7 @@ app.delete('/favorites/:id', (req, res) => {
   db.collection('favorites').remove({ _id: new ObjectId(req.params.id) }, (err, results) => {
     if (err) { console.error(err); }
     // console.log(results, 'deleted song?');
-    res.send(results);
+    res.redirect('/#/home');
   });
 });
 
@@ -131,13 +131,11 @@ app.get('/callback', (req, res) => {
   const storedState = req.cookies ? req.cookies[stateKey] : null;
 
   if (state === null || state !== storedState) {
-    console.log('state mismatch', `state: ${state}`, `storedState ${storedState}`, 'cookies ', req.cookies);
     res.render('pages/callback', {
       access_token: null,
       expires_in: null,
     });
   } else {
-    console.log('do i hit??');
     res.clearCookie(stateKey);
     const authOptions = {
       url: 'https://accounts.spotify.com/api/token',
