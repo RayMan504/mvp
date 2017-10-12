@@ -31,11 +31,12 @@ spotifyPlayer.on('update', (response) => {
 
 spotifyPlayer.on('login', (user) => {
   if (user === null) {
-    loginContainer.style.display = 'block';
-    mainContainer.style.display = 'none';
+    // loginContainer.style.display = 'block';
+    // mainContainer.style.display = 'none';
   } else {
-    loginContainer.style.display = 'none';
-    mainContainer.style.display = 'block';
+    console.log('user', user);
+    // loginContainer.style.display = 'none';
+    // mainContainer.style.display = 'block';
   }
 });
 

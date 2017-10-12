@@ -35,6 +35,7 @@ const stateKey = 'spotify_auth_state';
 const client_id = process.env.CLIENT_ID;
 const client_secret = process.env.CLIENT_SECRET;
 const redirect_uri = process.env.REDIRECT_URI;
+// const show_dialog = process.env.SHOW_DIALOG;
 
 
 // mongodb
@@ -118,12 +119,14 @@ app.get('/login', (req, res) => {
 
   // your application requests authorization
   const scope = 'user-read-playback-state';
+  const show_dialog = 'true';
   res.redirect(`https://accounts.spotify.com/authorize?${
     querystring.stringify({
       response_type: 'code',
       client_id,
       scope,
       redirect_uri,
+      show_dialog,
       state,
     })}`);
 });
@@ -136,11 +139,13 @@ app.get('/callback', (req, res) => {
   const state = req.query.state || null;
   const storedState = req.cookies ? req.cookies[stateKey] : null;
 
+  // why is storedState undefined? undefined stored stace is preventing access_token from being rendered.
   if (state === null || state !== storedState) {
     res.render('pages/callback', {
       access_token: null,
       expires_in: null,
     });
+    console.log('hello');
   } else {
     res.clearCookie(stateKey);
     const authOptions = {

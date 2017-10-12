@@ -16,8 +16,9 @@ angular.module('karaoke-party')
       const obj = {
         q: query,
         t: type,
+        accessToken: $window.SPOTIFY_ACCESS_TOKEN,
       };
-      const url = `https://api.spotify.com/v1/search?q=${obj.q}&type=${obj.t}`;
+      const url = `https://api.spotify.com/v1/search?q=${obj.q}&type=${obj.t}&access_token=${obj.accessToken}`;
       $http.get(url).success((data) => {
         callback(data);
       });

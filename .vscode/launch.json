@@ -15,7 +15,7 @@
         "NODE_ENV": "development",
         "CLIENT_ID": "c4de97a655db48398b8b242d74e260ff",
         "CLIENT_SECRET": "1a5655346b284d2eaf667432ab8ca679",
-        "REDIRECT_URI": "http://localhost:8080/callback"
+        "REDIRECT_URI": "http://localhost:8080/callback",
       }
     },
     {

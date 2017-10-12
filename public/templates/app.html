@@ -9,11 +9,6 @@
       </button>
     </div>
   </div>
-  <div ng-if="message">
-    <md-content>
-      <h3>{{message}}</h3>
-    </md-content>
-  </div>
   <div ng-controller="SongsCtrl">
     <div ng-if="results" ng-hide="lyrics">
       <div class="container-fluid" ng-repeat="song in results.response.hits">
@@ -23,8 +18,10 @@
           <div class=".col-lg-4">
             <img class="img-responsive" src="{{song.result.header_image_thumbnail_url}}">
           </div>
-          <div class=".col-lg-4">
-            <iframe src="https://open.spotify.com/embed?uri=spotify:track:4kflIGfjdZJW4ot2ioixTB" width="300" height="300"></iframe>
+          <div class=".col-lg-4" ng-repeat="track in content.tracks.items">
+            <div>
+              <iframe src="https://open.spotify.com/embed?uri=spotify:track:4kflIGfjdZJW4ot2ioixTB" width="300" height="300"></iframe>
+            </div>
           </div>
           <div class=".col-lg-4">
             <button class="btn btn-primary fa fa-music" ng-click="findLyrics(song.result.primary_artist.name, song.result.title); playOrStop()">
@@ -42,9 +39,12 @@
       </div>
     </div>
     <div ng-if="lyrics">
-      <md-content class="lyrics" ng-animate="'highlight'">
-        {{lyrics.lyrics}}
-      </md-content>
+      <!--<div ng-if="!lyrics">
+        Sorry, no lyrics supported for this song :(.
+      </div>-->
+      <div>
+        <mark>{{lyrics.lyrics}}</mark>
+      </div>
     </div>
   </div>
 </div>

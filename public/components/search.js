@@ -13,10 +13,7 @@ angular.module('karaoke-party')
       });
       $scope.spotify = genius.spotifySearch($scope.searchString, $scope.type, (data) => {
         $scope.content = data;
-        console.log($scope.content, 'spotify call works');
-      });
-      $http.get('/callback').then((response) => {
-        console.log(response, "logging in....");
+        console.log($scope.content.tracks.items[0].id, 'spotify call works');
       });
     };
   });
