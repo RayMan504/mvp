@@ -13,7 +13,9 @@ angular.module('karaoke-party')
       });
       $scope.spotify = genius.spotifySearch($scope.searchString, $scope.type, (data) => {
         $scope.content = data;
-        console.log($scope.content.tracks.items[0].id, 'spotify call works');
+        // console.log($scope.id, 'spotify call works');
       });
     };
+    $scope.url = 'https://open.spotify.com/embed?uri=spotify:track:' + $scope.id;
+    console.log($scope.url);
   });

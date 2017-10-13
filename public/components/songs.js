@@ -15,11 +15,5 @@ angular.module('karaoke-party')
         console.log(response, 'saved in database');
       });
     };
-
-    $scope.login = function () {
-      $http.get('/login').then((response) => {
-        console.log(response, "logging in....");
-      });
-    };
   })
 ;
