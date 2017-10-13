@@ -14,9 +14,9 @@
       <div class="container-fluid" ng-repeat="song in results.response.hits">
         <h3>{{song.result.full_title}}</h3>
         <div class="row">
-          <a href="{{song.result.url}}"></a>
+          <!--<a href="{{song.result.url}}"></a>-->
           <div class=".col-lg-4">
-            <img class="img-responsive" src="{{song.result.header_image_thumbnail_url}}">
+            <img class="img-responsive" src="{{song.result.header_image_thumbnail_url}}" width="300" height="300">
           </div>
           <div class=".col-lg-4" ng-if="content">
             <!--<p>{{track}}</p>-->
