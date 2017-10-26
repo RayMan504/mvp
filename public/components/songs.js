@@ -4,9 +4,10 @@ angular.module('karaoke-party')
     // BOUND TO NG-MODEL="SEARCH"
     // $scope.search = 'ALL';
     $scope.findLyrics = function (artist, song) {
+      console.log(song, 'artist');
       $scope.genius = genius.getLyrics(artist, song, (data) => {
         $scope.lyrics = data;
-        // console.log($scope.lyrics.message.body.lyrics.lyrics_body, 'hello');
+        console.log($scope.lyrics, 'hello');
       });
     };
     $scope.post = function (song) {

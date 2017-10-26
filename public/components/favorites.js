@@ -1,5 +1,7 @@
 angular.module('karaoke-party')
-  .controller('FavoritesCtrl', ($scope, $http) => {
+  .controller('FavoritesCtrl', ($scope, $http, $sce) => {
+    $scope.url = 'https://open.spotify.com/embed?uri=spotify:track:';
+    $scope.players = [];
     $http.get('/favorites')
       .then((response) => {
         // First function handles success
@@ -13,5 +15,8 @@ angular.module('karaoke-party')
       $http.delete(`/favorites/${songId}`, { id: songId }).then((response) => {
         console.log(response, 'removed from database');
       });
+    };
+    $scope.trustSrc = function (src) {
+      return $sce.trustAsResourceUrl(src);
     };
   });
