@@ -3,7 +3,7 @@ angular.module('karaoke-party')
     $scope.searchString = '';
     $scope.type = 'track';
     $scope.onClick = function () {
-      $scope.url = "https://open.spotify.com/embed?uri=spotify:track:";
+      $scope.url = 'https://open.spotify.com/embed?uri=spotify:track:';
       $scope.players = [];
       $scope.spotify = genius.spotifySearch($scope.searchString, $scope.type, (data) => {
         $scope.content = data;
@@ -21,5 +21,11 @@ angular.module('karaoke-party')
     };
     $scope.trustSrc = function (src) {
       return $sce.trustAsResourceUrl(src);
+    };
+  })
+// angular.module('karaoke-party')
+  .directive('spotify', function() {
+    return {
+      template: '<iframe src={{trustSrc(players[0])}} width="300" height="300"></iframe>',
     };
   });
