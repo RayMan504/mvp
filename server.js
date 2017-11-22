@@ -6,6 +6,7 @@ const morgan = require('morgan'); // log requests to the console (express4)
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
+require('dotenv').config();
 
 
 

@@ -31,7 +31,7 @@ angular.module('karaoke-party')
       const url = `https://api.lyrics.ovh/v1/${obj.q}/${obj.title}`;
       $http.get(url)
         .success((data) => {
-          console.log('hello');
+          console.log(data, 'lyrics')
           callback(data);
         });
     };
