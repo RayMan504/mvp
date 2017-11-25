@@ -11,9 +11,9 @@
   </div>
   <div ng-controller="SongsCtrl">
     <div ng-if="content" ng-hide="lyrics">
+      <spotify ng-repeat="player in players" sub="player" linker="trustSrc"></spotify>
       <div ng-repeat="song in content.tracks.items">
         <div class=".col-lg-4" ng-if="content">
-          <div spotify></div>
           <!--<div ng-repeat="player in players"><iframe src="{{trustSrc(player)}}" width="300" height="300"></iframe></div>-->
           <div class=".col-lg-4">
             <button class="btn btn-primary fa fa-music" ng-click="findLyrics(song.artists[0].name, song.name)">
