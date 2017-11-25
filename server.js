@@ -8,7 +8,12 @@ const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
 require('dotenv').config();
 
+const aws = require('aws-sdk');
 
+let s3 = new aws.S3({
+  accessKeyId: process.env.GENIUS_ACCESS_TOKEN,
+  secretAccessKey: process.env.SPOTIFY_ACCESS_TOKEN,
+});
 
 
 const app = express();
