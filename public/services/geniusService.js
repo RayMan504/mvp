@@ -28,10 +28,10 @@ angular.module('karaoke-party')
         q: artist,
         title: song,
       };
+      console.log(obj.q, 'Thesmoothcat?');
       const url = `https://api.lyrics.ovh/v1/${obj.q}/${obj.title}`;
       $http.get(url)
         .success((data) => {
-          console.log(data, 'lyrics')
           callback(data);
         });
     };
