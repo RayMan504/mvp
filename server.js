@@ -11,8 +11,8 @@ require('dotenv').config();
 const aws = require('aws-sdk');
 
 let s3 = new aws.S3({
-  accessKeyId: process.env.GENIUS_ACCESS_TOKEN,
-  secretAccessKey: process.env.SPOTIFY_ACCESS_TOKEN,
+  GENIUS_ACCESS_TOKEN: process.env.GENIUS_ACCESS_TOKEN,
+  SPOTIFY_ACCESS_TOKEN: process.env.SPOTIFY_ACCESS_TOKEN,
 });
 
 
